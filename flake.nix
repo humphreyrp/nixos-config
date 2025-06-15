@@ -1,22 +1,13 @@
 {
-    description = "My NixOS base configuration";
-    inputs = {
-        home-manager = {
-            url = "github:nix-community/home-manager";
-            inputs.nixpkgs.follows = "nixpkgs";
-        };
-    };
-    outputs =
+  description = "My NixOS base configuration";
+  inputs = { };
+  outputs =
+    { self }:
     {
-        self,
-        nixpkgs,
-        home-manager,
-	...
-    }:
-    {
-        nixosModules = {
-            default = ./modules/base-config.nix;
-        };
-	baseHomeManager = ./home-manager.nix;
+      nixosModules = {
+        default = ./modules/base-config.nix;
+      };
+      # TODO: Can I make this a module?
+      baseHomeManager = ./home-manager.nix;
     };
 }
