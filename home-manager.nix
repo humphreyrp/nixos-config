@@ -1,11 +1,8 @@
 { pkgs, lib, ... }:
-let tex = (pkgs.texlive.combine {
-    inherit (pkgs.texlive)
-      scheme-medium
-      csquotes
-      librebaskerville;
-  });
-in {
+let
+  tex = (pkgs.texlive.combine { inherit (pkgs.texlive) scheme-medium csquotes librebaskerville; });
+in
+{
   home.username = "robbie";
   home.homeDirectory = "/home/robbie";
 
@@ -36,8 +33,12 @@ in {
     pkgs.ripgrep
     pkgs.virtualenv
     tex
-    (pkgs.writeShellScriptBin "launch-nix-shell" (lib.fileContents ./home-manager/scripts/launch-nix-shell))
-    (pkgs.writeShellScriptBin "launch-dev-shell" (lib.fileContents ./home-manager/scripts/launch-dev-shell))
+    (pkgs.writeShellScriptBin "launch-nix-shell" (
+      lib.fileContents ./home-manager/scripts/launch-nix-shell
+    ))
+    (pkgs.writeShellScriptBin "launch-dev-shell" (
+      lib.fileContents ./home-manager/scripts/launch-dev-shell
+    ))
   ];
 
   # basic configuration of git, please change to your own
