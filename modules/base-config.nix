@@ -4,6 +4,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim
+    neovim
     wget
     git
     tcpdump
@@ -17,6 +18,7 @@
     fd
     unzip
     btop
+    htop
     sqlite
     rlwrap
     jq
@@ -33,4 +35,7 @@
     # Useful search utility
     nix-index
   ];
+
+  # Enable the OpenSSH daemon
+  services.openssh.enable = true;
 }

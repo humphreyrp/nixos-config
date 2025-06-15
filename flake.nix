@@ -11,12 +11,12 @@
         self,
         nixpkgs,
         home-manager,
+	...
     }:
-    let
-    in
     {
         nixosModules = {
-            default = ./configuration.nix;
+            default = ./modules/base-config.nix;
         };
+	baseHomeManager = ./home-manager.nix;
     };
 }
