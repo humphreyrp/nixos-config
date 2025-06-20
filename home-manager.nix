@@ -59,9 +59,10 @@ in
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
-    promptInit = ''
-      eval "$(${pkgs.zellij} setup --generate-auto-start zsh)"
-    '';
+    initContent = lib.mkOrder 1200 ''
+                    eval "$(zellij setup --generate-auto-start zsh)"
+                  '';
+
 
     shellAliases = {
       ll = "ls -la";
