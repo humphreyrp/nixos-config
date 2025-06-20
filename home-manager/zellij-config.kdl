@@ -136,3 +136,5 @@ keybinds clear-defaults=true {
 plugins {
     compact-bar location="zellij:compact-bar"
 }
+
+show_startup_tips false;
