@@ -5,13 +5,8 @@
   environment.systemPackages = with pkgs; [
     vim
     neovim
-    wget
     git
-    tcpdump
     fuse
-    netcat-gnu
-    inetutils
-    tshark
     dpkg
     tree
     fzf
@@ -23,6 +18,19 @@
     rlwrap
     jq
     nix-tree
+    file
+
+    # Networking
+    tshark
+    tcpdump
+    inetutils
+    wget
+
+    # Binary utilities
+    patchelf
+    toybox
+    binutils
+    pax-utils
 
     # Hardware utilities
     lshw
@@ -30,6 +38,7 @@
 
     # System language servers
     lua-language-server
+    dhall-lsp-server
     nixd
 
     # Useful search utility
