@@ -20,8 +20,8 @@ vim.keymap.set('n', '<C-j>', '<C-o>', { noremap = true })
 vim.keymap.set('n', '<C-k>', '<C-i>', { noremap = true })
 
 -- Move cursor multiple lins
-vim.keymap.set('n', 'J', '10j', { noremap = true })
-vim.keymap.set('n', 'K', '10k', { noremap = true })
+vim.keymap.set({"n", "v"}, 'J', '10j', { noremap = true })
+vim.keymap.set({"n", "v"}, 'K', '10k', { noremap = true })
 
 -- Disable the mouse so we can just use the sytem click handling (copy/paste)
 vim.opt.mouse = ""
