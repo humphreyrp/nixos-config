@@ -44,11 +44,6 @@ in
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
-    initContent = lib.mkOrder 1200 ''
-                    eval "$(zellij setup --generate-auto-start zsh)"
-                  '';
-
-
     shellAliases = {
       ll = "ls -la";
       la = "ls -latr";
@@ -63,6 +58,9 @@ in
       plugins = [ "git" ];
       theme = "my-gnzh";
       custom = "$HOME/.config/oh-my-zsh";
+      extraConfig = ''
+        eval "$(zellij setup --generate-auto-start zsh)"
+      '';
     };
   };
   home.file.".config/oh-my-zsh/themes/my-gnzh.zsh-theme".source = ./home-manager/my-gnzh.zsh-theme;
