@@ -138,3 +138,6 @@ plugins {
 }
 
 show_startup_tips false;
+
+// Don't show the grouping options on hover
+advanced_mouse_actions false;
