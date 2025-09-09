@@ -8,8 +8,6 @@ vim.opt.number = true
 vim.opt.ignorecase = true;
 vim.opt.smartcase = true;
 
-vim.cmd [[colorscheme vscode]]
-
 vim.opt.colorcolumn = "100"
 
 -- Don't wrap, because it starts to look weird when you have files side by side
@@ -192,6 +190,16 @@ require('Comment').setup {
     },
 }
 
--- Enable and configure git blame
+-- Setup the color scheme
+require('vscode').setup({
+    color_overrides = {
+        vscPopupBack = '#363636',
+    },
+})
+vim.cmd.colorscheme "vscode"
+
+-- Enable and configure git blame. This needs to be after the color scheme is setup otherwise
+-- it will be overwritten
 vim.cmd([[highlight Blamer guifg=#4e4e4e]])
 vim.g.blamer_enabled = true
+
