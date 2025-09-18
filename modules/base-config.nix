@@ -25,6 +25,7 @@
     tcpdump
     inetutils
     wget
+    ethtool
 
     # Binary utilities
     patchelf
