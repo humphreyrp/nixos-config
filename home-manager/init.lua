@@ -72,6 +72,15 @@ nvim_lsp.cmake.setup {
 nvim_lsp.dhall_lsp_server.setup {
 }
 nvim_lsp.pylsp.setup {
+    settings = {
+        pylsp = {
+            plugins = {
+                yapf = {
+                    enabled = true
+                }
+            }
+        }
+    }
 }
 nvim_lsp.rust_analyzer.setup {
 }
