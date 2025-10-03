@@ -89,6 +89,7 @@ in
       comment-nvim
       blamer-nvim
       nvim-web-devicons
+      vim-sleuth
     ];
   };
   home.file.".config/nvim/init.lua".source = ./home-manager/init.lua;
