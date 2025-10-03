@@ -48,4 +48,10 @@
 
   # Enable the OpenSSH daemon
   services.openssh.enable = true;
+
+  programs.ssh.extraConfig = ''
+    Host *
+        ServerAliveInterval 60
+        ServerAliveCountMax 3
+  '';
 }
