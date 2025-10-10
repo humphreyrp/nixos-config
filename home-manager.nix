@@ -98,7 +98,8 @@ in
   programs.zellij = {
     enable = true;
   };
-  home.file.".config/zellij/config.kdl".source = ./home-manager/zellij-config.kdl;
+  home.file.".config/zellij/config.kdl".source = ./home-manager/zellij/config.kdl;
+  home.file.".config/zellij/layouts/default.kdl".source = ./home-manager/zellij/fivepane-layout.kdl;
 
   programs.fzf = {
     enable = true;
