@@ -26,6 +26,7 @@
     inetutils
     wget
     ethtool
+    nmap
 
     # Binary utilities
     patchelf
