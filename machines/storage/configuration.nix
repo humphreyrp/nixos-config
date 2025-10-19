@@ -95,6 +95,10 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -102,6 +106,9 @@
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     git
   ];
+
+  programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.zsh;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

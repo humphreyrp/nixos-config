@@ -2,7 +2,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     baseConfig = {
-      url = "git+file:///home/robbie/git/nixos-config";
+      url = "../../";
     };
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -13,7 +13,7 @@
   outputs = { self, nixpkgs, baseConfig, home-manager }: {
 
     nixosConfigurations = {
-        mySystem = nixpkgs.lib.nixosSystem {
+        topLevel = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             modules = [
                 ./configuration.nix
@@ -21,7 +21,10 @@
                 home-manager.nixosModules.home-manager {
                     home-manager.useGlobalPkgs = true;
                     home-manager.useUserPackages = true;
-                    home-manager.users.robbie = import baseConfig.baseHomeManager;
+                    home-manager.users.robbie = {
+                      imports = [ baseConfig.baseHomeManager ];
+                      programs.zellij.enable = nixpkgs.lib.mkForce false;
+                    };
                 }
             ];
         };

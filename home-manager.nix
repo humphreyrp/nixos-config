@@ -59,7 +59,10 @@ in
       theme = "my-gnzh";
       custom = "$HOME/.config/oh-my-zsh";
       extraConfig = ''
-        eval "$(zellij setup --generate-auto-start zsh)"
+        if command -v zellij &> /dev/null
+        then
+          eval "$(zellij setup --generate-auto-start zsh)"
+        fi
       '';
     };
   };
