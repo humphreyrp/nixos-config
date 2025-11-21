@@ -1,6 +1,7 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 let
   tex = (pkgs.texlive.combine { inherit (pkgs.texlive) scheme-medium csquotes librebaskerville; });
+  lib = pkgs.lib;
 in
 {
   home.username = "robbie";

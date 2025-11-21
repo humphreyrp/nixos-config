@@ -1,6 +1,6 @@
 {
   description = "My NixOS base configuration";
-  inputs = { 
+  inputs = rec {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     homeManager = {
       url = "github:nix-community/home-manager";
@@ -13,8 +13,12 @@
       nixosModules = {
         default = ./modules/base-config.nix;
       };
-      baseHomeManager = ./home-manager.nix;
-      baseConfig = import ./modules/base-config.nix { pkgs=nixpkgs; };
-      machines = import ./machines { inherit nixpkgs baseConfig homeManager; };
+      # TODO: Make this more sane
+      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      baseHomeManager = import ./home-manager.nix { inherit pkgs; };
+      baseConfig = import ./modules/base-config.nix { inherit pkgs; };
+      nixosConfigurations = {
+        machines = import ./machines { inherit nixpkgs baseConfig homeManager baseHomeManager; };
+      };
     };
 }
