@@ -8,8 +8,12 @@
     };
   };
   outputs =
-    { self, nixpkgs, homeManager}: rec
     {
+      self,
+      nixpkgs,
+      homeManager,
+    }:
+    rec {
       # TODO: Make this more sane
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
       common = import ./common/common.nix { inherit pkgs; };
@@ -19,5 +23,6 @@
       nixosConfigurations = {
         machines = import ./machines { inherit nixpkgs homeManager common; };
       };
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
     };
 }
