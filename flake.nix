@@ -8,17 +8,16 @@
     };
   };
   outputs =
-    { self, nixpkgs, homeManager }: rec
+    { self, nixpkgs, homeManager}: rec
     {
+      # TODO: Make this more sane
+      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      common = import ./common/common.nix { inherit pkgs; };
       nixosModules = {
         default = ./modules/base-config.nix;
       };
-      # TODO: Make this more sane
-      pkgs = nixpkgs.legacyPackages.x86_64-linux;
-      baseHomeManager = import ./home-manager.nix { inherit pkgs; };
-      baseConfig = import ./modules/base-config.nix { inherit pkgs; };
       nixosConfigurations = {
-        machines = import ./machines { inherit nixpkgs baseConfig homeManager baseHomeManager; };
+        machines = import ./machines { inherit nixpkgs homeManager common; };
       };
     };
 }

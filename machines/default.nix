@@ -1,4 +1,4 @@
-{ nixpkgs, baseConfig, homeManager, baseHomeManager }:
+{ nixpkgs, homeManager, common }:
 {
-  storage = import ./storage/top-level.nix { inherit nixpkgs baseConfig homeManager baseHomeManager; };
+  storage = import ./storage/top-level.nix { inherit nixpkgs homeManager common; };
 }
