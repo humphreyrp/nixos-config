@@ -51,8 +51,7 @@ vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.format({ async = false })<CR>', 
 vim.keymap.set('n', 'gs', vim.lsp.buf.signature_help, { silent = true })
 vim.keymap.set('n', 'gm', '<cmd>ClangdSwitchSourceHeader<CR>', { silent = true })
 
-local nvim_lsp = require('lspconfig')
-nvim_lsp.hls.setup {
+vim.lsp.config['hls'] = {
     cmd = { "haskell-language-server", "--lsp" },
     settings = {
         haskell = {
@@ -63,15 +62,7 @@ nvim_lsp.hls.setup {
     on_attach = function(client, bufnr)
     end,
 }
-nvim_lsp.clangd.setup {
-}
-nvim_lsp.nixd.setup {
-}
-nvim_lsp.cmake.setup {
-}
-nvim_lsp.dhall_lsp_server.setup {
-}
-nvim_lsp.pylsp.setup {
+vim.lsp.config['pylsp'] = {
     settings = {
         pylsp = {
             plugins = {
@@ -82,11 +73,8 @@ nvim_lsp.pylsp.setup {
         }
     }
 }
-nvim_lsp.rust_analyzer.setup {
-}
-
 -- This was all taken from comments in the lspconfig git repository
-nvim_lsp.lua_ls.setup {
+vim.lsp.config['lua_ls'] = {
     on_init = function(client)
         if client.workspace_folders then
             local path = client.workspace_folders[1].name
@@ -119,6 +107,7 @@ nvim_lsp.lua_ls.setup {
         Lua = {}
     }
 }
+vim.lsp.enable({'hls', 'clangd', 'cmake', 'dhall_lsp_server', 'pylsp', 'nixd', 'rust_analyzer', 'lua_ls'})
 
 -- Tries to speed up the LSP
 local capabilities = vim.lsp.protocol.make_client_capabilities()
