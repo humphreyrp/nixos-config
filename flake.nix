@@ -17,11 +17,8 @@
       # TODO: Make this more sane
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
       common = import ./common/common.nix { inherit pkgs; };
-      nixosModules = {
-        default = ./modules/base-config.nix;
-      };
       nixosConfigurations = {
-        machines = import ./machines { inherit nixpkgs homeManager common; };
+        machines = import ./machines/machines.nix { inherit nixpkgs homeManager common; };
       };
       # TODO: Make common for all systems
       formatter.x86_64-linux = pkgs.nixfmt-rfc-style;
