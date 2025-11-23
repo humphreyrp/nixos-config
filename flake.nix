@@ -13,14 +13,11 @@
       nixpkgs,
       homeManager,
     }:
-    rec {
-      # TODO: Make this more sane
-      pkgs = nixpkgs.legacyPackages.x86_64-linux;
-      common = import ./common/common.nix { inherit pkgs; };
-      nixosConfigurations = {
+    let pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        common = import ./common/common.nix { inherit pkgs; };
         machines = import ./machines/machines.nix { inherit nixpkgs homeManager common; };
-      };
-      # TODO: Make common for all systems
+    in {
+      nixosConfigurations = machines;
       formatter.x86_64-linux = pkgs.nixfmt-rfc-style;
     };
 }

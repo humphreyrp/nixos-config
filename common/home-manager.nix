@@ -27,15 +27,18 @@ in
     ))
   ];
 
-  # basic configuration of git, please change to your own
   programs.git = {
     enable = true;
-    userName = "Robert Humphrey";
-    userEmail = "humphreyrp92@gmail.com";
-    aliases = {
-      re = "reset --hard HEAD";
-      lb = "!r() { refbranch=\$1 count=\$2; git for-each-ref --sort=-committerdate refs/heads --format='%(refname:short)|%(HEAD)%(color:yellow)%(refname:short)|%(color:bold green)%(committerdate:relative)|%(color:blue)%(subject)|%(color:magenta)%(authorname)%(color:reset)' --color=always --count=\${count:-20} | while read line; do branch=\$(echo \"\$line\" | awk 'BEGIN { FS = \"|\" }; { print \$1 }' | tr -d '*'); ahead=\$(git rev-list --count \"\${refbranch:-origin/master}..\${branch}\"); behind=\$(git rev-list --count \"\${branch}..\${refbranch:-origin/master}\"); colorline=\$(echo \"\$line\" | sed 's/^[^|]*|//'); echo \"\$ahead|\$behind|\$colorline\" | awk -F'|' -vOFS='|' '{\$5=substr(\$5,1,70)}1' ; done | ( echo \"ahead|behind|branch|lastcommit|message|author\n\" && cat) | column -ts'|';}; r";
-      cp = "cherry-pick";
+    settings = {
+      user = {
+        name = "Robert Humphrey";
+        email = "humphreyrp92@gmail.com";
+      };
+      alias = {
+        re = "reset --hard HEAD";
+        lb = "!r() { refbranch=\$1 count=\$2; git for-each-ref --sort=-committerdate refs/heads --format='%(refname:short)|%(HEAD)%(color:yellow)%(refname:short)|%(color:bold green)%(committerdate:relative)|%(color:blue)%(subject)|%(color:magenta)%(authorname)%(color:reset)' --color=always --count=\${count:-20} | while read line; do branch=\$(echo \"\$line\" | awk 'BEGIN { FS = \"|\" }; { print \$1 }' | tr -d '*'); ahead=\$(git rev-list --count \"\${refbranch:-origin/master}..\${branch}\"); behind=\$(git rev-list --count \"\${branch}..\${refbranch:-origin/master}\"); colorline=\$(echo \"\$line\" | sed 's/^[^|]*|//'); echo \"\$ahead|\$behind|\$colorline\" | awk -F'|' -vOFS='|' '{\$5=substr(\$5,1,70)}1' ; done | ( echo \"ahead|behind|branch|lastcommit|message|author\n\" && cat) | column -ts'|';}; r";
+        cp = "cherry-pick";
+      };
     };
   };
 
