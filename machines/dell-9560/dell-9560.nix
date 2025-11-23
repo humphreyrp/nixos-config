@@ -1,4 +1,3 @@
-
 {
   nixpkgs,
   homeManager,
@@ -14,7 +13,10 @@ nixpkgs.lib.nixosSystem {
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;
       home-manager.users.robbie = {
-        imports = [ common.baseHomeManager ];
+        imports = [
+          common.homeManager.baseConfig
+          common.homeManager.tex
+        ];
       };
     }
   ];

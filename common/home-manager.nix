@@ -1,6 +1,5 @@
 { pkgs, ... }:
 let
-  tex = (pkgs.texlive.combine { inherit (pkgs.texlive) scheme-medium csquotes librebaskerville; });
   lib = pkgs.lib;
 in
 {
@@ -18,7 +17,6 @@ in
     pkgs.fzf
     pkgs.ripgrep
     pkgs.virtualenv
-    tex
     (pkgs.writeShellScriptBin "launch-nix-shell" (
       lib.fileContents ./home-manager/scripts/launch-nix-shell
     ))

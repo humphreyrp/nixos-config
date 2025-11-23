@@ -13,7 +13,7 @@ nixpkgs.lib.nixosSystem {
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;
       home-manager.users.robbie = {
-        imports = [ common.baseHomeManager ];
+        imports = [ common.homeManager.baseConfig ];
         programs.zellij.enable = nixpkgs.lib.mkForce false;
       };
     }
