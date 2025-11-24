@@ -7,6 +7,7 @@ nixpkgs.lib.nixosSystem {
   system = "x86_64-linux";
   modules = [
     ./configuration.nix
+    ./samba.nix
     common.baseConfig
     homeManager.nixosModules.home-manager
     {
