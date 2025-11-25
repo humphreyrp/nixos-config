@@ -8,6 +8,7 @@ nixpkgs.lib.nixosSystem {
   modules = [
     ./configuration.nix
     ./samba.nix
+    ./backup.nix
     common.baseConfig
     homeManager.nixosModules.home-manager
     {
