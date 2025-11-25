@@ -1,7 +1,7 @@
 { ... }:
 {
   # Create a user for the samba share. Password is created imperatively with smbpasswd.
-  users.groups.smbuser = {};
+  users.groups.smbuser = { };
   users.users.smbuser = {
     isSystemUser = true;
     group = "smbuser";
