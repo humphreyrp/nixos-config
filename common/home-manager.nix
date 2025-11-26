@@ -106,6 +106,10 @@ in
   home.file.".config/zellij/config.kdl".source = ./home-manager/zellij/config.kdl;
   home.file.".config/zellij/layouts/default.kdl".source = ./home-manager/zellij/fivepane-layout.kdl;
 
+  # Add the ghostty terminfo
+  home.file.".terminfo/x/xterm-ghostty".source = ./home-manager/ghostty-terminfo;
+  home.file.".terminfo/g/ghostty".source = ./home-manager/ghostty-terminfo;
+
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;

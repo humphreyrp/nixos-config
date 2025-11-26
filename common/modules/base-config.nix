@@ -19,6 +19,7 @@
     jq
     nix-tree
     file
+    ghostty
 
     # Networking
     tshark
@@ -55,4 +56,11 @@
         ServerAliveInterval 60
         ServerAliveCountMax 3
   '';
+
+  # Run periodic garbage collection
+  nix.gc.automatic = true;
+  nix.gc.dates = "weekly";
+
+  # Will automatically build terminfo for any installed terminal emulators
+  environment.enableAllTerminfo = true;
 }
