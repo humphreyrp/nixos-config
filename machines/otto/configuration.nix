@@ -15,7 +15,7 @@
   boot.loader.grub.device = "/dev/vda";
   boot.loader.grub.useOSProber = true;
 
-  networking.hostName = "automation-server"; # Define your hostname.
+  networking.hostName = "otto"; # Define your hostname.
 
   # Enable networking
   networking.networkmanager.enable = true;
