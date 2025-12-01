@@ -17,7 +17,6 @@
     sqlite
     rlwrap
     jq
-    nix-tree
     file
     ghostty
 
@@ -42,10 +41,12 @@
     # System language servers
     lua-language-server
     dhall-lsp-server
-    nixd
 
-    # Useful search utility
+    # Nix utilities
     nix-index
+    nixd
+    nix-tree
+    nix-output-monitor
   ];
 
   # Enable the OpenSSH daemon
