@@ -9,6 +9,7 @@ nixpkgs.lib.nixosSystem {
     ./configuration.nix
     ./samba.nix
     ./backup.nix
+    ./immich.nix
     common.baseConfig
     homeManager.nixosModules.home-manager
     {

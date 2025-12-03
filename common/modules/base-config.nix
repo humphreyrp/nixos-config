@@ -37,6 +37,7 @@
     # Hardware utilities
     lshw
     busybox
+    parted
 
     # System language servers
     lua-language-server

@@ -19,8 +19,9 @@
 
   # Create the public share directory
   systemd.tmpfiles.rules = [
-    "d /data 0776 smbuser smbuser - -"
-    "d /data/public 0776 smbuser smbuser - -"
+    "d /data 0755 root root - -"
+    "d /data/public 0755 root root - -"
+    "d /data/public/samba 0755 smbuser smbuser - -"
   ];
 
   services.samba = {
