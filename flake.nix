@@ -20,6 +20,7 @@
     in
     {
       nixosConfigurations = machines;
+      commonConfig = common;
       formatter.x86_64-linux = pkgs.nixfmt-rfc-style;
     };
 }
