@@ -39,7 +39,7 @@
         "map to guest" = "bad user";
       };
       "public" = {
-        path = "/data/public";
+        path = "/data/public/samba";
         browseable = "yes";
         "read only" = "no";
         "guest ok" = "yes";

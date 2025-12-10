@@ -16,6 +16,6 @@
       BORG_RSH = "ssh -i /root/borg/id_ed25519-borgbase";
     };
     compression = "auto,lzma";
-    startAt = "daily";
+    startAt = "weekly";
   };
 }
