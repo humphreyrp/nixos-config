@@ -5,7 +5,6 @@
 }:
 nixpkgs.lib.nixosSystem {
   system = "x86_64-linux";
-  description = "Development NixOS configuration";
   modules = [
     ./configuration.nix
     common.baseConfig

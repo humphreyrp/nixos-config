@@ -87,6 +87,7 @@
     wget
     git
     zsh
+    borgbackup
 
     # Migrate these into base config
     neofetch
