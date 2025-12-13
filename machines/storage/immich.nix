@@ -1,6 +1,8 @@
 { ... }:
-let filepath = "/data/public/immich";
-in {
+let
+  filepath = "/data/public/immich";
+in
+{
   # Create the immich directory if it doesn't exist
   systemd.tmpfiles.rules = [
     "d ${filepath} 0755 immich immich - -"
