@@ -72,12 +72,12 @@
         "nix-command"
         "flakes"
       ];
+      trusted-users = [
+        "robbie"
+        "root"
+        "@wheel"
+      ];
     };
-    trustedUsers = [
-      "robbie"
-      "root"
-      "@wheel"
-    ];
   };
 
   # List packages installed in system profile. To search, run:

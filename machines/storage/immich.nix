@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 let
   filepath = "/data/public/immich";
 in
@@ -8,8 +8,13 @@ in
     "d ${filepath} 0755 immich immich - -"
   ];
 
-  # Add to immich group
-  users.users.robbie.extraGroups = [ "immich" ];
+  users.users.robbie = {
+    # Add to immich group
+    extraGroups = [ "immich" ];
+    packages = [
+      pkgs.immich-cli
+    ];
+  };
 
   services.immich = {
     enable = true;
@@ -23,4 +28,10 @@ in
     };
   };
 
+  # Allow all local connections to have admin privileges.
+  # TODO: Make this more fine grained
+  services.postgresql.authentication = pkgs.lib.mkOverride 10 ''
+      #type database  DBuser  auth-method
+      local all       all     trust
+    '';
 }
