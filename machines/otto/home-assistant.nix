@@ -22,5 +22,7 @@
       # For now automations are done via the ui
       automation = "!include automations.yaml";
     };
+
+    openFirewall = true;
   };
 }
