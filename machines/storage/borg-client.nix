@@ -19,7 +19,7 @@ let baseBackup = {
   # to one in the cloud. Requires secrets files to be populated at /root/borg.
   # Local backup every day
   services.borgbackup.jobs.backupLocal = baseBackup // {
-    repo = "ssh://backupserver.localdomain/var/lib/storage_repo";
+    repo = "ssh://backup-server.localdomain/var/lib/storage_repo";
     startAt = "daily";
   };
 

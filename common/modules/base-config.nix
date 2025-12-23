@@ -27,6 +27,7 @@
     wget
     ethtool
     nmap
+    dig
 
     # Binary utilities
     patchelf
@@ -62,6 +63,10 @@
   # Run periodic garbage collection
   nix.gc.automatic = true;
   nix.gc.dates = "weekly";
+
+  # Setup zsh
+  programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.zsh;
 
   # Will automatically build terminfo for any installed terminal emulators
   environment.enableAllTerminfo = true;

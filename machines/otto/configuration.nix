@@ -1,8 +1,4 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -52,7 +48,7 @@
       "networkmanager"
       "wheel"
     ];
-    packages = with pkgs; [ ];
+    packages = [ ];
   };
 
   # Allow unfree packages
@@ -67,17 +63,12 @@
     zsh
   ];
 
-  # TODO: Put this somewhere common
-  programs.zsh.enable = true;
-  users.defaultUserShell = pkgs.zsh;
-
   # Enable the OpenSSH daemon.
   services.openssh = {
     enable = true;
     settings.PermitRootLogin = "yes";
+    openFirewall = true;
   };
-
-  networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
