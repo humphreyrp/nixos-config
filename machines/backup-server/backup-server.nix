@@ -7,9 +7,7 @@ nixpkgs.lib.nixosSystem {
   system = "x86_64-linux";
   modules = [
     ./configuration.nix
-    ./samba.nix
-    ./borg-client.nix
-    ./immich.nix
+    ./borg-server.nix
     common.baseConfig
     homeManager.nixosModules.home-manager
     {
