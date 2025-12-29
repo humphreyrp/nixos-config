@@ -15,19 +15,7 @@
   boot.loader.grub.device = "/dev/vda";
   boot.loader.grub.useOSProber = true;
 
-  networking = {
-    hostName = "rev-proxy";
-
-    # Set a static IP address on the exposed VLAN
-    interfaces.enp1s0.ipv4.addresses = [{
-      address = "192.168.30.100";
-      prefixLength = 24;
-    }];
-
-    networkmanager.enable = false;
-
-    defaultGateway = "192.168.30.1";
-  };
+  networking.hostName = "rev-proxy";
 
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
@@ -95,6 +83,12 @@
     enable = true;
     settings.PermitRootLogin = "yes";
   };
+
+  # Open ports in the firewall.
+  # networking.firewall.allowedTCPPorts = [ ... ];
+  # networking.firewall.allowedUDPPorts = [ ... ];
+  # Or disable the firewall altogether.
+  networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

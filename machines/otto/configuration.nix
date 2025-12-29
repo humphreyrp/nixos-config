@@ -15,7 +15,16 @@
   boot.loader.grub.device = "/dev/vda";
   boot.loader.grub.useOSProber = true;
 
-  networking.hostName = "otto"; # Define your hostname.
+  networking = {
+    hostName = "otto";
+    vlans = {
+      vlan40 = { id = 40; interface = "enp1s0"; };
+    };
+    interfaces.vlan40.ipv4.addresses = [{
+      address = "192.168.40.2";
+      prefixLength = 24;
+    }];
+  };
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -52,7 +61,6 @@
       "networkmanager"
       "wheel"
     ];
-    packages = with pkgs; [ ];
   };
 
   # Allow unfree packages
