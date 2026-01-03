@@ -14,13 +14,24 @@
       homeManager,
     }:
     let
-      pkgs = nixpkgs.legacyPackages.x86_64-linux;
-      common = import ./common/common.nix { inherit pkgs; };
-      machines = import ./machines/machines.nix { inherit nixpkgs homeManager common; };
+      commonConfig = { pkgs, ...}: import ./common/common.nix { inherit pkgs; };
+      systems = [ "x86_64-linux" "aarch64-linux" ];
+      packages = nixpkgs.lib.genAttrs systems (system:
+        let
+          pkgs = import nixpkgs { inherit system; };
+        in
+          {
+            inherit pkgs;
+            common = commonConfig { inherit pkgs; };
+          });
+      machines = import ./machines/machines.nix {
+        inherit nixpkgs homeManager;
+        common = packages."x86_64-linux".common;
+      };
     in
     {
       nixosConfigurations = machines;
-      commonConfig = common;
-      formatter.x86_64-linux = pkgs.nixfmt-rfc-style;
+      packages = packages;
+      # formatter.x86_64-linux = pkgs.nixfmt-rfc-style;
     };
 }
