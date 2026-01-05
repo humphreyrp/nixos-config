@@ -1,3 +1,3 @@
-#!/bin/bash
+#!/usr/bin/env sh
 
-nix-shell --arg dev true --command zsh
+nom-shell --arg dev true --command zsh
