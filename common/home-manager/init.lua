@@ -7,6 +7,7 @@ vim.opt.termguicolors = true
 vim.opt.number = true
 vim.opt.ignorecase = true;
 vim.opt.smartcase = true;
+vim.opt.showtabline = false
 
 vim.opt.colorcolumn = "100"
 
