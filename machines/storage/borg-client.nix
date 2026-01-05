@@ -1,16 +1,18 @@
 { pkgs, ... }:
-let baseBackup = {
-      paths = [ "/data/public" ];
-      encryption = {
-        mode = "repokey-blake2";
-        passCommand = "cat /root/borg/borgbase-passphrase";
-      };
-      environment = {
-        BORG_RSH = "ssh -i /root/borg/id_ed25519-borgbase";
-      };
-      compression = "auto,lzma";
+let
+  baseBackup = {
+    paths = [ "/data/public" ];
+    encryption = {
+      mode = "repokey-blake2";
+      passCommand = "cat /root/borg/borgbase-passphrase";
     };
- in {
+    environment = {
+      BORG_RSH = "ssh -i /root/borg/id_ed25519-borgbase";
+    };
+    compression = "auto,lzma";
+  };
+in
+{
   environment.systemPackages = with pkgs; [
     borgbackup
   ];
