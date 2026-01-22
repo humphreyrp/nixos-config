@@ -1,0 +1,23 @@
+layout {
+    cwd "/home/robbie"
+    tab name="Tab #1" focus=true hide_floating_panes=true {
+        pane split_direction="vertical" {
+            pane command="zsh" focus=true size="50%" {
+                start_suspended false
+            }
+            pane command="zsh" size="50%" {
+                start_suspended false
+            }
+        }
+        pane size=1 borderless=true {
+            plugin location="zellij:compact-bar"
+        }
+    }
+    new_tab_template {
+        pane cwd="/home/robbie"
+        pane size=1 borderless=true {
+            plugin location="zellij:compact-bar"
+        }
+    }
+}
+

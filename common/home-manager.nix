@@ -100,7 +100,7 @@ in
     enable = true;
   };
   home.file.".config/zellij/config.kdl".source = ./home-manager/zellij/config.kdl;
-  home.file.".config/zellij/layouts/default.kdl".source = ./home-manager/zellij/fivepane-layout.kdl;
+  home.file.".config/zellij/layouts/default.kdl".source = ./home-manager/zellij/twopane-layout.kdl;
 
   programs.fzf = {
     enable = true;
