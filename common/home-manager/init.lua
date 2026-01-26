@@ -117,10 +117,12 @@ capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = false
 -- Telescope Config
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', 'To',
-    function() builtin.find_files({ find_command = { 'rg', '--files', '--hidden', '-g', '!.git' } }) end, {})
-vim.keymap.set('n', 'Tf', builtin.live_grep, {})
+    function() builtin.find_files({ find_command = { 'rg', '--files', '--hidden', '--glob', '!**/.git/*' } }) end, {})
+vim.keymap.set('n', 'Tf', function () builtin.live_grep({ additional_args = { '--hidden', '--glob', '!**/.git/*' } }) end, {})
 vim.keymap.set('n', 'Tb', function() builtin.buffers({ sort_mru = true }) end, {})
 vim.keymap.set('n', 'Th', builtin.help_tags, {})
+vim.keymap.set('n', 'Tr', builtin.lsp_references, {})
+vim.keymap.set('n', 'Td', builtin.lsp_definitions, {})
 
 local telescope = require('telescope')
 telescope.setup {
