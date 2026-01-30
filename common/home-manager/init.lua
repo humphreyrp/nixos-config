@@ -204,3 +204,4 @@ vim.cmd.colorscheme "vscode"
 vim.cmd([[highlight Blamer guifg=#4e4e4e]])
 vim.g.blamer_enabled = true
 
+require("scrollbar").setup()
