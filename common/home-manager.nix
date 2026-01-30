@@ -93,6 +93,7 @@ in
       nvim-web-devicons
       vim-sleuth
       vim-surround
+      nvim-scrollbar
     ];
   };
   home.file.".config/nvim/init.lua".source = ./home-manager/init.lua;
