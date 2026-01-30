@@ -192,7 +192,7 @@ require('Comment').setup {
 }
 
 -- Setup the color scheme
-require('vscode').setup({
+local colors = require('vscode').setup({
     color_overrides = {
         vscPopupBack = '#363636',
     },
@@ -204,4 +204,8 @@ vim.cmd.colorscheme "vscode"
 vim.cmd([[highlight Blamer guifg=#4e4e4e]])
 vim.g.blamer_enabled = true
 
-require("scrollbar").setup()
+require("scrollbar").setup({
+    handle = {
+        color = colors.bg_highlight,
+    },
+})
