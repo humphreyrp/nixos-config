@@ -205,11 +205,6 @@ vim.cmd.colorscheme "vscode"
 vim.cmd([[highlight Blamer guifg=#4e4e4e]])
 vim.g.blamer_enabled = true
 
--- Show git differences
-vim.keymap.set('n', 'Gd', function()
-    vim.cmd('GitGutterPreviewHunk')
-end, {})
-
 require("scrollbar").setup({
     handle = {
         color = '#363636',
