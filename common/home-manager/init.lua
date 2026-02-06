@@ -19,8 +19,8 @@ vim.keymap.set('n', '<C-j>', '<C-o>', { noremap = true })
 vim.keymap.set('n', '<C-k>', '<C-i>', { noremap = true })
 
 -- Move cursor multiple lins
-vim.keymap.set({"n", "v"}, 'J', '10j', { noremap = true })
-vim.keymap.set({"n", "v"}, 'K', '10k', { noremap = true })
+vim.keymap.set({ "n", "v" }, 'J', '10j', { noremap = true })
+vim.keymap.set({ "n", "v" }, 'K', '10k', { noremap = true })
 
 -- Disable the mouse so we can just use the sytem click handling (copy/paste)
 vim.opt.mouse = ""
@@ -108,7 +108,7 @@ vim.lsp.config['lua_ls'] = {
         Lua = {}
     }
 }
-vim.lsp.enable({'hls', 'clangd', 'cmake', 'dhall_lsp_server', 'pylsp', 'nixd', 'rust_analyzer', 'lua_ls'})
+vim.lsp.enable({ 'hls', 'clangd', 'cmake', 'dhall_lsp_server', 'pylsp', 'nixd', 'rust_analyzer', 'lua_ls' })
 
 -- Tries to speed up the LSP
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -118,7 +118,8 @@ capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = false
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', 'To',
     function() builtin.find_files({ find_command = { 'rg', '--files', '--hidden', '--glob', '!**/.git/*' } }) end, {})
-vim.keymap.set('n', 'Tf', function () builtin.live_grep({ additional_args = { '--hidden', '--glob', '!**/.git/*' } }) end, {})
+vim.keymap.set('n', 'Tf', function() builtin.live_grep({ additional_args = { '--hidden', '--glob', '!**/.git/*' } }) end,
+    {})
 vim.keymap.set('n', 'Tb', function() builtin.buffers({ sort_mru = true }) end, {})
 vim.keymap.set('n', 'Th', builtin.help_tags, {})
 vim.keymap.set('n', 'Tr', builtin.lsp_references, {})
@@ -203,6 +204,9 @@ vim.cmd.colorscheme "vscode"
 -- it will be overwritten
 vim.cmd([[highlight Blamer guifg=#4e4e4e]])
 vim.g.blamer_enabled = true
+
+-- Show git differences
+vim.keymap.set('n', 'Gd', "<Cmd>Grep<CR>", { silent = true, desc = "Show inline git diff" })
 
 require("scrollbar").setup({
     handle = {
