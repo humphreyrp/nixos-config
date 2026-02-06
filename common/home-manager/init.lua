@@ -206,7 +206,9 @@ vim.cmd([[highlight Blamer guifg=#4e4e4e]])
 vim.g.blamer_enabled = true
 
 -- Show git differences
-vim.keymap.set('n', 'Gd', "<Cmd>GitGutterPreviewHunk<CR>", { silent = true, desc = "Show inline git diff" })
+vim.keymap.set('n', 'Gd', function()
+    vim.cmd('GitGutterPreviewHunk')
+end, {})
 
 require("scrollbar").setup({
     handle = {
