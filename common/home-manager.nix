@@ -94,6 +94,7 @@ in
       vim-sleuth
       vim-surround
       nvim-scrollbar
+      rust-tools-nvim
     ];
   };
   home.file.".config/nvim/init.lua".source = ./home-manager/init.lua;
