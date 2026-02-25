@@ -19,7 +19,7 @@ fi
 
 # Check if we are in a nix shell
 if [[ -n "$IN_NIX_SHELL" ]]; then
-  NIX_PROMPT='[nix-shell]'
+  NIX_PROMPT='[shell]'
 else
   NIX_PROMPT=''
 fi
@@ -31,7 +31,7 @@ local current_dir="%B%F{blue}%~%f%b"
 local git_branch='$(git_prompt_info)'
 local venv_prompt='$(virtualenv_prompt_info)'
 
-PROMPT="╭─$NIX_PROMPT ${venv_prompt}${user_host}:${current_dir} ${git_branch}
+PROMPT="╭─${NIX_PROMPT}${venv_prompt} ${user_host}:${current_dir} ${git_branch}
 ╰─$PR_PROMPT "
 RPROMPT="${return_code}"
 
