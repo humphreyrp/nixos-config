@@ -108,7 +108,12 @@ vim.lsp.config['lua_ls'] = {
         Lua = {}
     }
 }
-vim.lsp.enable({ 
+vim.lsp.config['verible'] = {
+    cmd = { 'verible-verilog-ls', '--lsp_enable_hover' },
+    filetypes = { 'systemverilog', 'verilog' },
+    root_markers = { 'shell.nix' },
+}
+vim.lsp.enable({
     'hls',
     'clangd',
     'cmake',
@@ -116,7 +121,9 @@ vim.lsp.enable({
     'pylsp',
     'nixd',
     'rust_analyzer',
-    'lua_ls' })
+    'lua_ls',
+    'verible'
+})
 
 -- Tries to speed up the LSP
 local capabilities = vim.lsp.protocol.make_client_capabilities()
