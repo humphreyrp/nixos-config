@@ -2,9 +2,7 @@
 # and may be overwritten by future invocations.  Please make changes
 # to /etc/nixos/configuration.nix instead.
 {
-  config,
   lib,
-  pkgs,
   modulesPath,
   ...
 }:
@@ -28,6 +26,14 @@
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/9a4ecbbe-d8f4-424c-b70b-8899f2a05f68";
     fsType = "ext4";
+  };
+  fileSystems."/data/shared" = {
+    device = "hostshare";
+    fsType = "virtiofs";
+    options = [
+       "nofail"
+       "x-systemd.automount"
+     ];
   };
 
   swapDevices = [ ];
