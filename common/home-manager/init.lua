@@ -108,7 +108,15 @@ vim.lsp.config['lua_ls'] = {
         Lua = {}
     }
 }
-vim.lsp.enable({ 'hls', 'clangd', 'cmake', 'dhall_lsp_server', 'pylsp', 'nixd', 'rust_analyzer', 'lua_ls' })
+vim.lsp.enable({ 
+    'hls',
+    'clangd',
+    'cmake',
+    'dhall_lsp_server',
+    'pylsp',
+    'nixd',
+    'rust_analyzer',
+    'lua_ls' })
 
 -- Tries to speed up the LSP
 local capabilities = vim.lsp.protocol.make_client_capabilities()
