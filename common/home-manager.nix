@@ -48,8 +48,6 @@ in
       la = "ls -latr";
       gis = "git status";
       gap = "git add -p";
-      lds = "launch-dev-shell";
-      lns = "launch-nix-shell";
     };
 
     oh-my-zsh = {
