@@ -70,7 +70,7 @@ in
   programs.nix-your-shell = {
     enable = true;
     enableZshIntegration = true;
-    nix-output-monitor.enabel = true;
+    nix-output-monitor.enable = true;
   };
 
   programs.vim = {
