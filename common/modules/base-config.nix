@@ -49,6 +49,7 @@
     nixd
     nix-tree
     nix-output-monitor
+    nix-your-shell
   ];
 
   # Enable the OpenSSH daemon

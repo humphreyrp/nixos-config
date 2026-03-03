@@ -67,6 +67,12 @@ in
   };
   home.file.".config/oh-my-zsh/themes/my-gnzh.zsh-theme".source = ./home-manager/my-gnzh.zsh-theme;
 
+  programs.nix-your-shell = {
+    enable = true;
+    enableZshIntegration = true;
+    nix-output-monitor.enabel = true;
+  };
+
   programs.vim = {
     enable = true;
   };
