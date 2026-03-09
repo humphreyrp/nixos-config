@@ -1,7 +1,4 @@
 { pkgs, ... }:
-let
-  lib = pkgs.lib;
-in
 {
   home.username = "robbie";
   home.homeDirectory = "/home/robbie";
@@ -17,12 +14,6 @@ in
     pkgs.fzf
     pkgs.ripgrep
     pkgs.virtualenv
-    (pkgs.writeShellScriptBin "launch-nix-shell" (
-      lib.fileContents ./home-manager/scripts/launch-nix-shell
-    ))
-    (pkgs.writeShellScriptBin "launch-dev-shell" (
-      lib.fileContents ./home-manager/scripts/launch-dev-shell
-    ))
   ];
 
   programs.git = {
@@ -48,6 +39,8 @@ in
       la = "ls -latr";
       gis = "git status";
       gap = "git add -p";
+      ns = "nix-shell";
+      nd = "nix develop";
     };
 
     oh-my-zsh = {
