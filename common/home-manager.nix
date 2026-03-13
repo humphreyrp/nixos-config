@@ -43,10 +43,6 @@
       nd = "nix develop";
     };
 
-    initContent = ''
-      export BAR="baz";
-    '';
-
     oh-my-zsh = {
       enable = true;
       plugins = [ "git" ];
