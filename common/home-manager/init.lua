@@ -123,7 +123,8 @@ vim.lsp.enable({
     'rust_analyzer',
     'lua_ls',
     'verible',
-    'ts_ls'
+    'ts_ls',
+    'gopls'
 })
 
 -- Tries to speed up the LSP
