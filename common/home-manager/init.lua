@@ -242,6 +242,8 @@ require("lualine").setup({
                 'filename',
                 path = 3
             }
-        }
+        },
+        lualine_x = { 'filetype' },
+        lualine_y = { }
     }
 })
