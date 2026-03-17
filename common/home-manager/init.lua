@@ -232,3 +232,6 @@ require("scrollbar").setup({
         color = '#363636',
     },
 })
+
+-- Setup the status line with lualine
+require("lualine").setup({})

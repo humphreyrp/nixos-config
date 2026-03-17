@@ -92,6 +92,7 @@
       vim-surround
       nvim-scrollbar
       rustaceanvim
+      lualine-nvim
     ];
   };
   home.file.".config/nvim/init.lua".source = ./home-manager/init.lua;
