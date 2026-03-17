@@ -236,7 +236,7 @@ require("scrollbar").setup({
 -- Setup the status line with lualine
 require("lualine").setup({
     sections = {
-        lualine_a = {
+        lualine_c = {
             -- Show absolute path
             {
                 'filename',
