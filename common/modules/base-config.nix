@@ -43,6 +43,7 @@
     # System language servers
     lua-language-server
     dhall-lsp-server
+    protols
 
     # Nix utilities
     nix-index
