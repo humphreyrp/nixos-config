@@ -124,7 +124,8 @@ vim.lsp.enable({
     'lua_ls',
     'verible',
     'ts_ls',
-    'gopls'
+    'gopls',
+    'protols'
 })
 
 -- Tries to speed up the LSP
