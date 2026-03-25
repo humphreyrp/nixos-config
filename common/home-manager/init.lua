@@ -171,11 +171,6 @@ require("auto-session").setup {
 -- Auto-complete config
 local cmp = require('cmp')
 cmp.setup({
-    snippet = {
-        expand = function(args)
-            vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-        end,
-    },
     window = {
         completion = cmp.config.window.bordered(),
         -- documentation = cmp.config.window.bordered(),
@@ -189,7 +184,6 @@ cmp.setup({
     }),
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
-        { name = 'ultisnips' }, -- For ultisnips users.
     }, {
         { name = 'buffer' },
     })
