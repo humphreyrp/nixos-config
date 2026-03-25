@@ -82,7 +82,6 @@
       auto-session
       nvim-cmp
       cmp-nvim-lsp
-      ultisnips
       vim-gitgutter
       vim-better-whitespace
       comment-nvim
