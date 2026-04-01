@@ -53,7 +53,7 @@ vim.keymap.set('n', 'gs', vim.lsp.buf.signature_help, { silent = true })
 vim.keymap.set('n', 'gm', '<cmd>ClangdSwitchSourceHeader<CR>', { silent = true })
 
 vim.lsp.config['hls'] = {
-    cmd = { "haskell-language-server", "--lsp" },
+    cmd = { "haskell-language-server", "--lsp", "--log-file", "/tmp/hls.log" },
     settings = {
         haskell = {
             formattingProvider = 'fourmolu',
