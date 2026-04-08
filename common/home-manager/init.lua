@@ -58,7 +58,6 @@ vim.lsp.config['hls'] = {
         haskell = {
             formattingProvider = 'fourmolu',
             cabalFormattingProvider = 'cabalfmt',
-            sessionLoading = "multipleComponents",
         },
     },
     on_attach = function(client, bufnr)
