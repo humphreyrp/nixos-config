@@ -92,6 +92,7 @@
       nvim-scrollbar
       rustaceanvim
       lualine-nvim
+      render-markdown-nvim
     ];
   };
   home.file.".config/nvim/init.lua".source = ./home-manager/init.lua;
