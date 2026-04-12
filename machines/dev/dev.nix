@@ -13,9 +13,9 @@ nixpkgs.lib.nixosSystem {
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;
       home-manager.users.robbie = {
+        config.enableTex = true;
         imports = [
           common.homeManager.baseConfig
-          common.homeManager.tex
         ];
       };
     }

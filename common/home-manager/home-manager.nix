@@ -1,5 +1,11 @@
 { pkgs, ... }:
 {
+  imports = [
+    ./modules/nvim.nix
+    ./modules/zellij.nix
+    ./modules/tex.nix
+  ];
+
   home.username = "robbie";
   home.homeDirectory = "/home/robbie";
 
@@ -56,52 +62,13 @@
       '';
     };
   };
-  home.file.".config/oh-my-zsh/themes/my-gnzh.zsh-theme".source = ./home-manager/my-gnzh.zsh-theme;
+  home.file.".config/oh-my-zsh/themes/my-gnzh.zsh-theme".source = ./my-gnzh.zsh-theme;
 
   programs.nix-your-shell = {
     enable = true;
     enableZshIntegration = true;
     nix-output-monitor.enable = true;
   };
-
-  programs.vim = {
-    enable = true;
-  };
-
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
-    plugins = with pkgs.vimPlugins; [
-      nvim-lspconfig
-      vscode-nvim
-      telescope-nvim
-      telescope-file-browser-nvim
-      haskell-vim
-      auto-session
-      nvim-cmp
-      cmp-nvim-lsp
-      vim-gitgutter
-      vim-better-whitespace
-      comment-nvim
-      blamer-nvim
-      nvim-web-devicons
-      vim-sleuth
-      vim-surround
-      nvim-scrollbar
-      rustaceanvim
-      lualine-nvim
-      render-markdown-nvim
-    ];
-  };
-  home.file.".config/nvim/init.lua".source = ./home-manager/init.lua;
-
-  programs.zellij = {
-    enable = true;
-  };
-  home.file.".config/zellij/config.kdl".source = ./home-manager/zellij/config.kdl;
-  home.file.".config/zellij/layouts/default.kdl".source = ./home-manager/zellij/twopane-layout.kdl;
 
   programs.fzf = {
     enable = true;

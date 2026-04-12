@@ -31,9 +31,9 @@
     device = "hostshare";
     fsType = "virtiofs";
     options = [
-       "nofail"
-       "x-systemd.automount"
-     ];
+      "nofail"
+      "x-systemd.automount"
+    ];
   };
 
   swapDevices = [ ];
