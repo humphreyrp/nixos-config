@@ -242,3 +242,9 @@ require("lualine").setup({
         lualine_y = { }
     }
 })
+
+-- Set the markdown code to be brighter than the background for clarity
+vim.api.nvim_set_hl(0, "RenderMarkdownCode", { link = "NormalFloat" })
+require('render-markdown').setup({
+    file_types = { 'markdown', 'vimwiki' },
+})
