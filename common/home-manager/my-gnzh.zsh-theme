@@ -32,7 +32,7 @@ local git_branch='$(git_prompt_info)'
 local venv_prompt='$(virtualenv_prompt_info)'
 
 PROMPT="╭─${NIX_PROMPT}${venv_prompt} ${user_host}:${current_dir} ${git_branch}
-╰─$PR_PROMPT "
+╰─$PR_PROMPT"
 RPROMPT="${return_code}"
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%F{yellow}‹"
