@@ -29,6 +29,7 @@
       rustaceanvim
       lualine-nvim
       render-markdown-nvim
+      diffview-nvim
     ];
   };
   home.file.".config/nvim/init.lua".source = ./nvim/init.lua;
