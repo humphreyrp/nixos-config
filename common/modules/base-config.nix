@@ -19,6 +19,7 @@
     jq
     file
     ghostty
+    gnumake
 
     # Networking
     tshark
