@@ -249,3 +249,8 @@ vim.api.nvim_set_hl(0, "RenderMarkdownCode", { link = "NormalFloat" })
 require('render-markdown').setup({
     file_types = { 'markdown', 'vimwiki' },
 })
+
+-- Setup the clipboard to use OSC-52, and remap keys
+vim.g.clipboard = 'osc52'
+vim.keymap.set('v', '<S-y>', '"+y', { noremap = true, silent = true })
+vim.keymap.set('v', '<S-x>', '"+x', { noremap = true, silent = true })

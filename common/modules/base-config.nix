@@ -29,6 +29,7 @@
     ethtool
     nmap
     dig
+    iptables
 
     # Binary utilities
     patchelf
