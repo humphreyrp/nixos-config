@@ -31,9 +31,7 @@
       render-markdown-nvim
       diffview-nvim
     ];
-    initLua = [
-      "require(\"custom-init\")"
-    ];
+    initLua = "require('custom-init')";
   };
   home.file.".config/nvim/lua/custom-init.lua".source = ./nvim/custom-init.lua;
 }
