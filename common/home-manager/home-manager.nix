@@ -69,10 +69,10 @@
     nix-output-monitor.enable = true;
   };
 
-  programs.fzf = {
-    enable = true;
-    enableZshIntegration = true;
-  };
+  # programs.fzf = {
+  #   enable = true;
+  #   enableZshIntegration = true;
+  # };
 
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage
