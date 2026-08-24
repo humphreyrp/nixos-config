@@ -72,6 +72,7 @@
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;
+    enableNushellIntegration = false;
   };
 
   # This value determines the home Manager release that your
