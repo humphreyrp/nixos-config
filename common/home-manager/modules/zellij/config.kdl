@@ -141,3 +141,4 @@ show_startup_tips false;
 // Don't show any mouse hover effects
 advanced_mouse_actions false;
 mouse_hover_effects false;
+mouse_hover_tips false;
