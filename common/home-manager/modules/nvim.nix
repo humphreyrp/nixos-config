@@ -31,7 +31,7 @@
       render-markdown-nvim
       diffview-nvim
     ];
-    sideloadInitLua = ./nvim/init.lua;
+    initLua = builtins.readFile ./nvim/init.lua;
   };
   # home.file.".config/nvim/init.lua".source = ./nvim/init.lua;
 }
