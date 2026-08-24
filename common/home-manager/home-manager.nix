@@ -17,7 +17,6 @@
 
   # Packages that should be installed to the user profile.
   home.packages = [
-    pkgs.fzf
     pkgs.ripgrep
     pkgs.virtualenv
   ];
@@ -83,7 +82,7 @@
   # You can update home Manager without changing this value. See
   # the home Manager release notes for a list of state version
   # changes in each release.
-  home.stateVersion = "24.11";
+  home.stateVersion = "26.05";
 
   # Let home Manager install and manage itself.
   programs.home-manager.enable = true;
