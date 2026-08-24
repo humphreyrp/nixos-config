@@ -72,6 +72,7 @@
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;
+    # Need to explicitly disable nushell integration otherwise this throws fzf version errors
     enableNushellIntegration = false;
   };
 
