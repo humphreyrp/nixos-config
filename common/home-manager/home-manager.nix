@@ -17,7 +17,6 @@
 
   # Packages that should be installed to the user profile.
   home.packages = [
-    pkgs.fzf
     pkgs.ripgrep
     pkgs.virtualenv
   ];
@@ -73,6 +72,8 @@
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;
+    # Need to explicitly disable nushell integration otherwise this throws fzf version errors
+    enableNushellIntegration = false;
   };
 
   # This value determines the home Manager release that your
@@ -83,7 +84,7 @@
   # You can update home Manager without changing this value. See
   # the home Manager release notes for a list of state version
   # changes in each release.
-  home.stateVersion = "24.11";
+  home.stateVersion = "26.05";
 
   # Let home Manager install and manage itself.
   programs.home-manager.enable = true;

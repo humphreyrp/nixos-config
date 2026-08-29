@@ -138,5 +138,7 @@ plugins {
 
 show_startup_tips false;
 
-// Don't show the grouping options on hover
+// Don't show any mouse hover effects
 advanced_mouse_actions false;
+mouse_hover_effects false;
+mouse_hover_tips false;
