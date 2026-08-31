@@ -39,6 +39,6 @@
     in
     {
       nixosConfigurations = machines;
-      inherit formatter;
+      inherit formatter common commonHomeManager;
     };
 }
