@@ -1,4 +1,13 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  options,
+  lib,
+  ...
+}:
+let
+  hasInitLua = options.programs.neovim ? initLua;
+  targetPath = if hasInitLua then ".config/nvim/lua/custom-init.lua" else ".config/nvim/init.lua";
+in
 {
   programs.vim = {
     enable = true;
@@ -31,7 +40,7 @@
       render-markdown-nvim
       diffview-nvim
     ];
-    initLua = "require('custom-init')";
-  };
-  home.file.".config/nvim/lua/custom-init.lua".source = ./nvim/custom-init.lua;
+  }
+  // lib.optionalAttrs hasInitLua { initLua = "require('custom-init')"; };
+  home.file."${targetPath}".source = ./nvim/custom-init.lua;
 }

@@ -1,4 +1,9 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  options,
+  lib,
+  ...
+}:
 {
   imports = [
     ./modules/nvim.nix
@@ -72,7 +77,8 @@
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;
-    # Need to explicitly disable nushell integration otherwise this throws fzf version errors
+  }
+  // lib.optionalAttrs (options.programs.fzf ? enableNushellIntegration) {
     enableNushellIntegration = false;
   };
 

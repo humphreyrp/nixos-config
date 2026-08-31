@@ -82,7 +82,6 @@
     borgbackup
 
     # Migrate these into base config
-    neofetch
     kitty
     docker-compose
     openssl

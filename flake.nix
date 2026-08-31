@@ -1,7 +1,7 @@
 {
   description = "NixOS configurations for all of my nix machines";
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs?rev=8c50a710ddca43d7a530fb805ad55bde8d0141c5";
     homeManager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -18,24 +18,16 @@
         "x86_64-linux"
         "aarch64-linux"
       ];
+      common = ./common/modules/base-config.nix;
+      commonHomeManager = ./common/home-manager/home-manager.nix;
       machines = import ./machines/machines.nix {
-        inherit nixpkgs homeManager;
-        common = packages."x86_64-linux".common;
+        inherit
+          nixpkgs
+          homeManager
+          common
+          commonHomeManager
+          ;
       };
-
-      # Generate an output package set for all supported systems
-      buildCommonConfig = { pkgs, ... }: import ./common/common.nix { inherit pkgs; };
-      packages = nixpkgs.lib.genAttrs systems (
-        system:
-        let
-          pkgs = import nixpkgs { inherit system; };
-        in
-        {
-          inherit pkgs;
-          common = buildCommonConfig { inherit pkgs; };
-        }
-      );
-
       # Formatter for each system
       formatter = nixpkgs.lib.genAttrs systems (
         system:
@@ -47,6 +39,6 @@
     in
     {
       nixosConfigurations = machines;
-      inherit packages formatter;
+      inherit formatter;
     };
 }
