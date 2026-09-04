@@ -28,6 +28,10 @@
 
   programs.git = {
     enable = true;
+    lfs = {
+      enable = true;
+      skipSmudge = true;
+    };
     settings = {
       alias = {
         re = "reset --hard HEAD";
