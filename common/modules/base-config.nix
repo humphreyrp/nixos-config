@@ -58,12 +58,6 @@
   # Enable the OpenSSH daemon
   services.openssh.enable = true;
 
-  programs.ssh.extraConfig = ''
-    Host *
-        ServerAliveInterval 60
-        ServerAliveCountMax 3
-  '';
-
   # Run periodic garbage collection
   # Note: I'm always in a fight to clear space in the nix store. A trick that I've found is to
   # make sure I'm deleting my development build products that might hang around my file system. To
