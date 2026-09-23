@@ -63,6 +63,12 @@ vim.lsp.config['hls'] = {
     on_attach = function(client, bufnr)
     end,
 }
+vim.lsp.config['dhall_lsp_server'] = {
+    on_attach = function(client, bufnr)
+        -- Does not currently support semantic tokens
+        client.server_capabilities.semanticTokensProvider = nil
+    end
+}
 vim.lsp.config['pylsp'] = {
     settings = {
         pylsp = {
