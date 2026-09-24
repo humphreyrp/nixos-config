@@ -21,9 +21,53 @@
   };
 
   # Packages that should be installed to the user profile.
-  home.packages = [
-    pkgs.ripgrep
-    pkgs.virtualenv
+  home.packages = with pkgs; [
+    fuse
+    dpkg
+    tree
+    fzf
+    fd
+    unzip
+    btop
+    sqlite
+    rlwrap
+    jq
+    file
+    ghostty
+    gnumake
+
+    # Networking
+    tshark
+    tcpdump
+    inetutils
+    wget
+    ethtool
+    nmap
+    dig
+    iptables
+
+    # Binary utilities
+    patchelf
+    toybox
+    binutils
+    pax-utils
+
+    # Hardware utilities
+    lshw
+    busybox
+    parted
+
+    # System language servers
+    lua-language-server
+    dhall-lsp-server
+    yaml-language-server
+
+    # Nix utilities
+    nix-index
+    nixd
+    nix-tree
+    nix-output-monitor
+    nix-your-shell
   ];
 
   programs.git = {
